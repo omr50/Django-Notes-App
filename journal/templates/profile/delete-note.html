@@ -1,0 +1,38 @@
+{% load crispy_forms_tags %}
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>delete notes</title>
+</head>
+<body>
+    {% include 'base.html' %}
+    <div class="container bg-light p-5 form-layout">
+        <h3>Delete Note.</h3>
+        <br>
+        <form method="post" autocomplete="off">
+            {% csrf_token %}
+            
+            <p>Are you sure that you want to delete your note?</p>
+            <a href="{% url 'my-notes' %}">Return</a>
+            <br>
+            <br>
+            <button type="submit" class="btn btn-danger btn-lg w-100 btn-block p-4">Delete Note</button>
+        </form>
+        <br>
+        {% for message in messages %}
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+            <div id="login-message-timer" class="alert alert-success float-center text-center message-text" role="alert">
+                {{message}}
+            </div>
+        {% endif %}
+    {% endfor %}
+    </div>
+    {% include 'addScripts.html' %}
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book worm</title>
+    {% include 'base.html' %}
+    {% load static %}
+    <div class="img-container">
+        <img src="{% static 'images/openbook.jpeg' %}" class="image-style">
+        <h3 class="img-text">Study more effectively by using flashcards and saving your notes. Sign in now!</h3>
+        <button class="btn btn-secondary btn-lg btn-block p-4 custom-button1" onclick="window.location.href='/my-login'">Login</button>
+        <button class="btn btn-secondary btn-lg btn-block p-4 custom-button2" onclick="window.location.href='/register'">Sign Up</button>
+    </div>
+    {% include 'addScripts.html' %}
+</body>
+</html>

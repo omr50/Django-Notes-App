@@ -1,0 +1,38 @@
+{% load static %}
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/united/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary nav-styles">
+    <div class="container-fluid">
+      <a class="navbar-brand navbrand" href="{% url 'home' %}"><span class="book">&#128214;</span><span class="nav-word">Book Worm</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item ">
+            <a class="nav-link hoverable" href="#" hoverable>Flashcards</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link hoverable" href="{% url 'my-notes' %}">Notes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link hoverable" href="#">About</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle hoverable" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Post</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="{% url 'post-notes' %}">Add Note</a>
+              <a class="dropdown-item" href="#">Add Flashcard Set</a>
+            </div>
+          </li>
+        </ul>
+        <a class="nav-link hoverable auth-buttons" href="{% url 'register' %}" hoverable>Sign Up</a>
+        <a class="nav-link hoverable auth-buttons" href="{% url 'my-login' %}" hoverable>Log In</a>
+      </div>
+    </div>
+  </nav>

@@ -1,0 +1,40 @@
+{% load crispy_forms_tags %}
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Management</title>
+</head>
+<body>
+    {% include 'base.html' %}
+    <div class="container bg-light p-5 form-layout">
+        <h3>Update Profile</h3>
+        <br>
+        <form method="post" autocomplete="off">
+            {% csrf_token %}
+            {{form.username|as_crispy_field}}
+            <br>
+            {{form.email|as_crispy_field}}
+            <br>
+            <div style="text-align:center;">
+                <button type="submit" class="btn btn-secondary btn-lg btn-block p-4">Update</button>
+            </div>
+            
+        </form>
+        <br>
+        {% for message in messages %}
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+            <div id="login-message-timer" class="alert alert-success float-center text-center message-text" role="alert">
+                {{message}}
+            </div>
+        {% endif %}
+    {% endfor %}
+    </div>
+    {% include 'addScripts.html' %}
+
+</body>
+</html>

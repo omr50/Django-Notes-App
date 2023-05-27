@@ -1,0 +1,38 @@
+
+{% load crispy_forms_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+    {% include 'base.html' %}
+    <div class="container bg-light p-5 form-layout">
+        <h3>Create your account</h3>
+        <h5>Study more effectively!</h5>
+        <br>
+        <form method="post" autocomplete="off">
+            {% csrf_token %}
+            {{form.username|as_crispy_field}}
+            <br>
+            {{form.email|as_crispy_field}}
+            <br>
+            {{form.password1|as_crispy_field}}
+            {{form.password2|as_crispy_field}}
+            <br>
+            <div style="text-align:center;">
+                <button type="submit" class="btn btn-secondary btn-lg btn-block p-4">Create account</button>
+            </div>
+            
+        </form>
+        <br>
+        <p>Already have an account? <a href="{% url 'my-login' %}">Login Now</a></p>
+    </div>
+    {% include 'addScripts.html' %}
+
+</body>
+</html>

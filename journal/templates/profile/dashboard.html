@@ -1,0 +1,28 @@
+
+{% load crispy_forms_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    {% include 'base.html' %}
+    <div class="container bg-light p-5 form-layout">
+        <h3>Your Dashboard</h3>
+
+        <a href="{% url 'user-logout' %}">Log out?</a>
+    </div>
+    <br>
+    <div class="container bg-light shadow-md p-5 form-layout">
+        <p>Manage your profile and setting: For instance you may want to upload
+            a <strong>profile picture.</strong>
+        </p>
+        <a class="nav-link hoverable auth-buttons custom-button3" href="{% url 'profile-management' %}">Profile Management</a>
+    </div>
+    {% include 'addScripts.html' %}
+</body>
+</html>
